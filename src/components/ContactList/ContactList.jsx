@@ -8,7 +8,7 @@ export const ContactList = () => {
     const contacts = useSelector(selectContacts)
     const filteredContacts = useSelector(selectFilter);
     const contactsFilter = contacts.items.filter(contact =>
-   contact.name.includes(filteredContacts.toLowerCase())
+   contact.name.toLowerCase().includes(filteredContacts)
   );
 
     const handleDelete = id => {
