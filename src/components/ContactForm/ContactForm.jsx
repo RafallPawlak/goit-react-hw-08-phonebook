@@ -1,9 +1,9 @@
 import { nanoid } from 'nanoid';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
-import style from './ContactForm.module.css';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContacts } from 'redux/contacts/operations';
+import css from './ContactForm.module.scss';
 
 export const ContactForm = () => {
     const contacts = useSelector(selectContacts);
@@ -27,14 +27,14 @@ export const ContactForm = () => {
       );
       return;
         }
-    dispatch(addContact(contact));
+    dispatch(addContacts(contact));
     form.reset();
     };
     
     return (
-        <form onSubmit={handleSubmit}>
-            <label className={style.title}>Name
-                <input className={style.input}
+        <form className={css.form} onSubmit={handleSubmit}>
+            <label className={css.label}>Name
+                <input className={css.input}
                     type="text"
                     name="name"
                     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -42,8 +42,8 @@ export const ContactForm = () => {
                     required
                 />
             </label>
-            <label className={style.title}>Number
-                <input className={style.input}
+            <label className={css.label}>Number
+                <input className={css.input}
                     placeholder="000-00-00"
                     type="tel"
                     name="number"
@@ -52,7 +52,7 @@ export const ContactForm = () => {
                     required
                 />
             </label>
-            <button className={style.button} type="submit">
+            <button className={css.button} type="submit">
                 Add contact
             </button>
         </form>
