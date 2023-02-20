@@ -7,7 +7,7 @@ export const ContactList = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts)
     const filteredContacts = useSelector(selectFilter);
-    const contactsFilter = contacts.items.filter(contact =>
+    const contactsFilter = contacts.filter(contact =>
    contact.name.toLowerCase().includes(filteredContacts)
   );
 

@@ -26,11 +26,11 @@ export const RegisterForm = () => {
       </label>
       <label className={css.label}>
         Email
-        <input className={css.input} type="email" name="email" />
+        <input className={css.input} type="email" name="email"  />
       </label>
       <label className={css.label}>
         Password
-        <input className={css.input} type="password" name="password" />
+        <input className={css.input} type="password" name="password" autoComplete="off" />
       </label>
       <button className={css.btn} type="submit">Register</button>
     </form>
