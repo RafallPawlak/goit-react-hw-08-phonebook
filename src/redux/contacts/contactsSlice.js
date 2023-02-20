@@ -1,5 +1,4 @@
-import { combineReducers, createSlice } from '@reduxjs/toolkit';
-import { filterReducer } from './filterSlice';
+import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContacts, removeContact } from './operations';
 
 const initialState = [];
@@ -16,19 +15,6 @@ const handleRejected = (state, action) => {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: { items: initialState, isLoading: false, error: null },
-  // reducers: {
-  //   sortContactsAz: state => {
-  //     state.items.sort((a, b) => {
-  //       return a.name.localeCompare(b.name);
-  //     });
-  //   },
-  //   sortContactsAzReverse: state => {
-  //     state.items.sort((a, b) => {
-  //       return b.name.localeCompare(a.name);
-  //     });
-  //   },
-  // },
-
   extraReducers: {
     [fetchContacts.pending]: handlePending,
     [fetchContacts.fulfilled](state, action) {
